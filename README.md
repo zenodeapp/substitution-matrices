@@ -37,7 +37,7 @@ npx hardhat run scripts/deploy.js
 Before we populate our freshly deployed CRUD, we'll have to make a couple changes to our [zenode.config.js](/zenode.config.js)-file.
 
 ### 4. zenode.config.js
-This is where most of the personalization/customization for contract deployment/filling takes place. For `substitution-matrices` this config file particularly deals with storing the pathnames for the alphabets and matrices and which of those should be inserted into or deleted from the deployed CRUD. Read more about alphabets and matrices in sub-section 4.2.
+This is where most of the personalization/customization for contract deployment/filling takes place. For `substitution-matrices` this config file particularly deals with storing the pathnames for the alphabets and matrices and which of those should be inserted into or deleted from the deployed CRUD. Read more about alphabets and matrices in [5 Alphabets and Matrices](#5-alphabets-and-matrices).
 
 #### 4.1 Configuration
 ##### 4.1.1 Add contract address
