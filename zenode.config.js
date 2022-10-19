@@ -1,4 +1,11 @@
 module.exports = {
+  contracts: {
+    substitutionMatrices: {
+      name: "SubstitutionMatrices",
+      address: "",
+    },
+  },
+
   alphabetToInsert: ["aa", "nt"], //either give a string value or array
   alphabetToDelete: ["aa", "nt"],
   matrixToInsert: [
@@ -53,13 +60,6 @@ module.exports = {
     pam250: {
       alphabet: "aa",
       file: "datasets/matrices/aa/pam250.txt",
-    },
-  },
-
-  contracts: {
-    substitutionMatrices: {
-      name: "SubstitutionMatrices",
-      address: "",
     },
   },
 };
