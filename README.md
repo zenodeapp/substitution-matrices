@@ -23,7 +23,7 @@ npx hardhat node
 `NOTE: Make sure to do this in a separate terminal!`
 <br>
 <br>
-This will create a local test environment where we shall deploy our contract to. On default the network is configured to Hardhat's local node, which you can change in the <b>hardhat.config.js</b>-file (for more info on this, see: https://hardhat.org/hardhat-runner/docs/config).
+This will create a local test environment where we shall deploy our contract to. On default the network is configured to Hardhat's local node, which you can change in [hardhat.config.js](/hardhat.config.js) (for more info on this, see: https://hardhat.org/hardhat-runner/docs/config).
 
 ### 3. Deploy 
 Now after having a node up and running we'll have to deploy our contract:
