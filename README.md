@@ -84,7 +84,7 @@ This will create a test environment where we can deploy our contract(s) to. By d
 
 ### 3. Deploy
 
-Now that are node is up-and-running, we can now deploy our contract using:
+Now that are node is up-and-running, we can deploy our contract using:
 
 ```
 npx hardhat run scripts/deploy.js
