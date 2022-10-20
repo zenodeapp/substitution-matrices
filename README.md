@@ -66,7 +66,7 @@ To know where we have to insert our alphabets and matrices, we'll have to add th
 ```javascript
 	...
 	contracts: {
-		substitutionMatrices: {
+	substitutionMatrices: {
 			name: "SubstitutionMatrices",
 			address: "ADD_YOUR_CONTRACT_ADDRESS_HERE",
 		},
