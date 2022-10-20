@@ -181,7 +181,7 @@ npx run scripts/matrices/insert.js
 
 Alphabets and Matrices are the two main components in the `SubstitutionMatrices` contract. `Alphabets` (currently) being: `nucleotide or protein sequence characters` (e.g. C, T, A and G) and `Matrices`: `2-dimensional grids` (e.g. BLOSUM62, PAM40, PAM120, etc.). To gain a better visual understanding, check out the alphabets and matrices included in the [datasets](/datasets)-folder.
 
-They are simple .txt-files in the following format:
+They are simple .txt-files abiding by the following formatting rules:
 
 - An `alphabet` is a single line of characters, delimited by whitespaces. Mind you that <b>the order of the characters is important</b> as their position represents their numeric value in the contract.
 
