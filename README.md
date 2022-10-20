@@ -83,7 +83,7 @@ By default, all (known) alphabets and matrices will be inserted upon running the
 
 ```javascript
 	{
-		// You could also pass in a single string instead of an array
+		// You could also pass in a string instead of an array
 		alphabetsToInsert: ["ALPHABET_ID_1", "ALPHABET_ID_2", ...],
 		matricesToInsert: ["MATRIX_ID_1", "MATRIX_ID_2", ...],
 	}
@@ -113,7 +113,7 @@ Now that we've deployed our contract and configured our setup, we can now start 
 To insert all the alphabets you've configured in the key-value pair `alphabetsToInsert` use:
 
 ```
-npx run scripts/alphabet/insert.js
+npx run scripts/alphabets/insert.js
 ```
 
 #### 5.2 Matrices
@@ -121,7 +121,7 @@ npx run scripts/alphabet/insert.js
 To insert all the matrices you've configured in the key-value pair `matricesToInsert` use:
 
 ```
-npx run scripts/matrix/insert.js
+npx run scripts/matrices/insert.js
 ```
 
 `NOTE: you can't insert a matrix before inserting the alphabet it belongs to!`

@@ -3,7 +3,7 @@ const { getContract } = require("../../submodules/zenode-helpers/helpers/web3");
 const {
   contracts,
   alphabets,
-  alphabetToInsert,
+  alphabetsToInsert,
 } = require("../../zenode.config");
 const web3 = require("web3");
 
@@ -14,13 +14,13 @@ async function main() {
     contracts.substitutionMatrices.address
   );
 
-  if (Array.isArray(alphabetToInsert)) {
-    for (let i = 0; i < alphabetToInsert.length; i++) {
-      const res = await insertAlphabet(contract, alphabetToInsert[i]);
+  if (Array.isArray(alphabetsToInsert)) {
+    for (let i = 0; i < alphabetsToInsert.length; i++) {
+      const res = await insertAlphabet(contract, alphabetsToInsert[i]);
       await res.wait();
     }
   } else {
-    insertAlphabet(contract, alphabetToInsert);
+    insertAlphabet(contract, alphabetsToInsert);
   }
 }
 

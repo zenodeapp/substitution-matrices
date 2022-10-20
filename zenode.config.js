@@ -6,27 +6,6 @@ module.exports = {
     },
   },
 
-  alphabetToInsert: ["aa", "nt"], //either give a string value or array
-  alphabetToDelete: ["aa", "nt"],
-  matrixToInsert: [
-    "simple",
-    "smart",
-    "blosum50",
-    "blosum62",
-    "pam40",
-    "pam120",
-    "pam250",
-  ],
-  matrixToDelete: [
-    "simple",
-    "smart",
-    "blosum50",
-    "blosum62",
-    "pam40",
-    "pam120",
-    "pam250",
-  ],
-
   alphabets: {
     nt: "datasets/alphabets/nt.txt",
     aa: "datasets/alphabets/aa.txt",
@@ -62,4 +41,26 @@ module.exports = {
       file: "datasets/matrices/aa/pam250.txt",
     },
   },
+
+  alphabetsToInsert: ["aa", "nt"], //either give a string value or array
+  matricesToInsert: [
+    "simple",
+    "smart",
+    "blosum50",
+    "blosum62",
+    "pam40",
+    "pam120",
+    "pam250",
+  ],
+
+  alphabetsToDelete: ["aa", "nt"],
+  matricesToDelete: [
+    "simple",
+    "smart",
+    "blosum50",
+    "blosum62",
+    "pam40",
+    "pam120",
+    "pam250",
+  ],
 };

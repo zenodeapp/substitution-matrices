@@ -1,6 +1,10 @@
 const fs = require("fs/promises");
 const { getContract } = require("../../submodules/zenode-helpers/helpers/web3");
-const { matrices, contracts, matrixToInsert } = require("../../zenode.config");
+const {
+  matrices,
+  contracts,
+  matricesToInsert,
+} = require("../../zenode.config");
 const web3 = require("web3");
 
 async function main() {
@@ -10,13 +14,13 @@ async function main() {
     contracts.substitutionMatrices.address
   );
 
-  if (Array.isArray(matrixToInsert)) {
-    for (let i = 0; i < matrixToInsert.length; i++) {
-      const res = await insertMatrix(contract, matrixToInsert[i]);
+  if (Array.isArray(matricesToInsert)) {
+    for (let i = 0; i < matricesToInsert.length; i++) {
+      const res = await insertMatrix(contract, matricesToInsert[i]);
       await res.wait();
     }
   } else {
-    insertMatrix(contract, matrixToInsert);
+    insertMatrix(contract, matricesToInsert);
   }
 }
 

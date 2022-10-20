@@ -1,5 +1,5 @@
 const { getContract } = require("../../submodules/zenode-helpers/helpers/web3");
-const { contracts, alphabetToDelete } = require("../../zenode.config");
+const { contracts, alphabetsToDelete } = require("../../zenode.config");
 
 async function main() {
   const contract = await getContract(
@@ -8,13 +8,13 @@ async function main() {
     contracts.substitutionMatrices.address
   );
 
-  if (Array.isArray(alphabetToDelete)) {
-    for (let i = 0; i < alphabetToDelete.length; i++) {
-      const res = await deleteAlphabet(contract, alphabetToDelete[i]);
+  if (Array.isArray(alphabetsToDelete)) {
+    for (let i = 0; i < alphabetsToDelete.length; i++) {
+      const res = await deleteAlphabet(contract, alphabetsToDelete[i]);
       await res.wait();
     }
   } else {
-    deleteAlphabet(contract, alphabetToDelete);
+    deleteAlphabet(contract, alphabetsToDelete);
   }
 }
 

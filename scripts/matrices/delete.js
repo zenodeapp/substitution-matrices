@@ -1,5 +1,5 @@
 const { getContract } = require("../../submodules/zenode-helpers/helpers/web3");
-const { contracts, matrixToDelete } = require("../../zenode.config");
+const { contracts, matricesToDelete } = require("../../zenode.config");
 
 async function main() {
   const contract = await getContract(
@@ -8,13 +8,13 @@ async function main() {
     contracts.substitutionMatrices.address
   );
 
-  if (Array.isArray(matrixToDelete)) {
-    for (let i = 0; i < matrixToDelete.length; i++) {
-      const res = await deleteMatrix(contract, matrixToDelete[i]);
+  if (Array.isArray(matricesToDelete)) {
+    for (let i = 0; i < matricesToDelete.length; i++) {
+      const res = await deleteMatrix(contract, matricesToDelete[i]);
       await res.wait();
     }
   } else {
-    deleteMatrix(contract, matrixToDelete);
+    deleteMatrix(contract, matricesToDelete);
   }
 }
 
