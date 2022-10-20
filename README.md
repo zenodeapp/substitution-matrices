@@ -11,6 +11,7 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
 ```
 npm install
 ```
+
 ```
 yarn install
 ```
@@ -43,8 +44,8 @@ npx hardhat run scripts/deploy.js
 `5. Population`
 
 ```
-npx run scripts/alphabets/insert.js
-npx run scripts/matrices/insert.js
+npx hardhat run scripts/alphabets/insert.js
+npx hardhat run scripts/matrices/insert.js
 ```
 
 `6. Interaction` <i>--use the scripts provided in the [Interaction phase](#6-interaction).</i>
@@ -151,14 +152,14 @@ For the `delete.js` script:
 
 ### 5 Population
 
-Now that we've deployed our contract and configured our setup, we can now start populating our CRUD with alphabets and matrices!
+Now that we've deployed our contract and configured our setup, we can start populating our CRUD with alphabets and matrices!
 
 #### 5.1 Alphabets
 
 To insert all the alphabets you've configured in the key-value pair `alphabetsToInsert` use:
 
 ```
-npx run scripts/alphabets/insert.js
+npx hardhat run scripts/alphabets/insert.js
 ```
 
 #### 5.2 Matrices
@@ -166,14 +167,68 @@ npx run scripts/alphabets/insert.js
 To insert all the matrices you've configured in the key-value pair `matricesToInsert` use:
 
 ```
-npx run scripts/matrices/insert.js
+npx hardhat run scripts/matrices/insert.js
 ```
 
 `NOTE: you can't insert a matrix before inserting the alphabet it belongs to!`
 
 ### 6 Interaction
 
-...
+Deployed, populated and ready to explore! Here are a few Hardhat tasks (written in [hardhat.config.js](\hardhat.config.js)) to test our contract with:
+
+<ul>
+<li>
+
+`getScore`
+output: int <i>--value represents the score of two characters in the substitution matrix</i>
+
+```
+npx hardhat getScore --matrix "MATRIX_ID" --a "SINGLE_CHAR_A" --b "SINGLE_CHAR_B"
+```
+
+</li>
+
+<li>
+
+`getAlphabet`
+output: struct Alphabet <i>--see [libraries/Structs.sol](/libraries/Structs.sol)</i>
+
+```
+npx hardhat getAlphabet --id "ALPHABET_ID"
+```
+
+</li>
+<li>
+
+`getMatrix`
+output: struct Matrix <i>--see [libraries/Structs.sol](/libraries/Structs.sol)</i>
+
+```
+npx hardhat getMatrix --id "MATRIX_ID"
+```
+
+</li>
+<li>
+
+`getAlphabets`
+output: string[]
+
+```
+npx hardhat getAlphabets
+```
+
+</li>
+<li>
+
+`getMatrices`
+output: string[]
+
+```
+npx hardhat getMatrices
+```
+
+</li>
+</ul>
 
 ## Appendix
 
