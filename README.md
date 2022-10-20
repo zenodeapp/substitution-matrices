@@ -187,8 +187,6 @@ They are simple .txt-files in the following format:
 
 2. A `matrix` is a 2-dimensional grid, where the row- and column names are characters from their respective alphabet. <b>Again, the order of the characters is important and should be the same as the corresponding alphabet!</b>
 
-`TIP: If you want to create a new matrix or alphabet, use any of the included files as a guideline or template.`
-
 ## Credits
 
 - Hardhat's infrastructure! (https://hardhat.org/)
