@@ -83,10 +83,8 @@ By default, all (known) alphabets and matrices will be inserted upon running the
 
 ```javascript
 	{
-		...
 		alphabetsToInsert: ["ALPHABET_ID_1", "ALPHABET_ID_2", ...],
 		matricesToInsert: ["MATRIX_ID_1", "MATRIX_ID_2", ...],
-		...
 	}
 ```
 
@@ -94,10 +92,8 @@ For the `delete.js` script:
 
 ```javascript
 	{
-		...
 		alphabetsToDelete: ["ALPHABET_ID_1", "ALPHABET_ID_2", ...],
 		matricesToDelete: ["MATRIX_ID_1", "MATRIX_ID_2", ...],
-		...
 	}
 ```
 
