@@ -6,7 +6,7 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
 
 ## TL;DR
 
-`[1. Installation](#1-installation)` <i>--use npm, yarn or any other package manager.</i>
+[`1. Installation`](#1-installation) <i>--use npm, yarn or any other package manager.</i>
 
 ```
 npm install
@@ -16,7 +16,7 @@ npm install
 yarn install
 ```
 
-`[2. Run the test node](#2-configure-and-run-your-test-node)` <i>--do this in a separate terminal!</i>
+[`2. Run the test node`](#2-configure-and-run-your-test-node) <i>--do this in a separate terminal!</i>
 
 ```script
 npx hardhat node
