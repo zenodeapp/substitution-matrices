@@ -6,7 +6,7 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
 
 ## TL;DR
 
-`1. Installation` <i>--use npm, yarn or any other package manager.</i>
+`[1. Installation](#1-installation)` <i>--use npm, yarn or any other package manager.</i>
 
 ```
 npm install
@@ -16,7 +16,7 @@ npm install
 yarn install
 ```
 
-`2. Run the test node` <i>--do this in a separate terminal!</i>
+`[2. Run the test node](#2-configure-and-run-your-test-node)` <i>--do this in a separate terminal!</i>
 
 ```script
 npx hardhat node
@@ -150,7 +150,7 @@ For the `delete.js` script:
 
 ...
 
-### 5 Population
+### 5. Population
 
 Now that we've deployed our contract and configured our setup, we can start populating our CRUD with alphabets and matrices!
 
@@ -172,7 +172,7 @@ npx hardhat run scripts/matrices/insert.js
 
 `NOTE: you can't insert a matrix before inserting the alphabet it belongs to!`
 
-### 6 Interaction
+### 6. Interaction
 
 Deployed, populated and ready to explore! Here are a few Hardhat tasks (written in [hardhat.config.js](\hardhat.config.js)) to test our contract with:
 
@@ -248,4 +248,5 @@ They are simple .txt-files abiding by the following formatting rules:
 
 </br>
 
-— ZEN - https://twitter.com/KeymasterZen
+<p align="right">— ZEN</p>
+<p align="right">Copyright (c) 2022 ZENODE</p>
