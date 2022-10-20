@@ -22,13 +22,13 @@ yarn install
 npx hardhat node
 ```
 
-`3. Deployment`
+[`3. Deployment`](#3-deployment)
 
 ```
 npx hardhat run scripts/deploy.js
 ```
 
-`4. Contract address` <i>--add to [zenode.config.js](\zenode.config.js)</i>
+[`4. Contract address`]([4-zenodeconfigjs]) <i>--add to [zenode.config.js](\zenode.config.js)</i>
 
 ```javascript
 	...
@@ -41,14 +41,14 @@ npx hardhat run scripts/deploy.js
 	...
 ```
 
-`5. Population`
+[`5. Population`](#5-population)
 
 ```
 npx hardhat run scripts/alphabets/insert.js
 npx hardhat run scripts/matrices/insert.js
 ```
 
-`6. Interaction` <i>--use the scripts provided in the [Interaction phase](#6-interaction).</i>
+[`6. Interaction`](#6-interaction) <i>--use the scripts provided in the [Interaction phase](#6-interaction).</i>
 
 ## Dependencies
 
@@ -83,7 +83,7 @@ npx hardhat node
 <br>
 This will create a test environment where we can deploy our contract(s) to. By default, this repository is configured to Hardhat's local test node, but can be changed in the [hardhat.config.js](/hardhat.config.js) file. For more information on how to do this, see [Hardhat's documentation](https://hardhat.org/hardhat-runner/docs/config).
 
-### 3. Deploy
+### 3. Deployment
 
 Now that are node is up-and-running, we can deploy our contract using:
 
