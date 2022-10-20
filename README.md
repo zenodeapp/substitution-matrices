@@ -4,6 +4,51 @@ A CRUD for Substitution Matrices (like PAM240, BLOSUM62, etc.) commonly used in 
 
 This has been built by ZENODE within the Hardhat environment and is licensed under the MIT-license (see [LICENSE.md](./LICENSE.md)).
 
+## TL;DR
+
+`Installation` --use either npm, yarn or any other package manager.
+
+```
+npm install
+```
+```
+yarn install
+```
+
+`Run localhost test node`
+
+```script
+npx hardhat node
+```
+
+`Deployment`
+
+```
+npx hardhat run scripts/deploy.js
+```
+
+`Contract address` --add to [zenode.config.js](\zenode.config.js)
+
+```javascript
+	...
+	contracts: {
+		substitutionMatrices: {
+			name: "SubstitutionMatrices",
+			address: "ADD_YOUR_CONTRACT_ADDRESS_HERE",
+		},
+	},
+	...
+```
+
+`Population`
+
+```
+npx run scripts/alphabets/insert.js
+npx run scripts/matrices/insert.js
+```
+
+`Interaction` --use the scripts provided in the [Interaction phase](#6-interaction).
+
 ## Dependencies
 
 - `hardhat` (npm module)
