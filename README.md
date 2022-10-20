@@ -28,7 +28,7 @@ npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
 
-[`4. Contract address`]([4-zenodeconfigjs]) <i>--add to [zenode.config.js](\zenode.config.js)</i>
+[`4. Configuration`]([#4-configuration]) <i>--add address to [zenode.config.js](\zenode.config.js)</i>
 
 ```javascript
 	...
@@ -85,7 +85,7 @@ This will create a test environment where we can deploy our contract(s) to. By d
 
 ### 3. Deployment
 
-Now that are node is up-and-running, we can deploy our contract using:
+Now that our node is up-and-running, we can deploy our contract using:
 
 ```
 npx hardhat run scripts/deploy.js
@@ -93,19 +93,11 @@ npx hardhat run scripts/deploy.js
 
 If all went well, you should see a message appear in your terminal, stating that the contract was deployed successfully.
 
-### 4. [zenode.config.js](/zenode.config.js)
+### 4. Configuration
 
-This is where most of the <i>personalization</i> for contract deployment and filling takes place. In the case of the `SubstitutionMatrices` contract this means:
+Before populating our freshly deployed CRUD, we'll first have to make a couple changes to our [zenode.config.js](/zenode.config.js) file ([learn more](#b-zenodeconfigjs)).
 
-- You can choose which alphabets/matrices get inserted or deleted in the `Population` phase.
-- You can configure which contract we'll interact with in the `Interaction` phase.
-- You can expand (or shrink for that matter) the list of known alphabets or matrices.
-
-#### 4.1 Configuration
-
-Before populating our freshly deployed CRUD, we'll first have to make a couple changes to our [zenode.config.js](/zenode.config.js) file.
-
-##### 4.1.1 Link contract address (required)
+#### 4.1 Link contract address (required)
 
 To know where we have to insert our alphabets and matrices, we'll have to add the address of our deployed contract to the `contracts` object.
 
@@ -123,7 +115,7 @@ To know where we have to insert our alphabets and matrices, we'll have to add th
 `NOTE: The contract address can be found in your terminal after deployment.`
 <br>
 
-##### 4.1.2 Editing insertions/deletions (Optional)
+#### 4.2 Editing insertions/deletions (Optional)
 
 By default, all (known) alphabets and matrices will be inserted upon running the `insert.js` script (`Population` phase). If you would like to change this, you could. Just edit the following key-value pairs:
 
@@ -146,7 +138,7 @@ For the `delete.js` script:
 
 `NOTE: The IDs are only valid if they are 'keys' found in the 'alphabets' and 'matrices' objects (more about this in the next sub-section).`
 
-##### 4.1.3 Creating new alphabets/matrices (Optional)
+#### 4.3 Creating new alphabets/matrices (Optional)
 
 ...
 
@@ -241,6 +233,14 @@ They are simple .txt-files abiding by the following formatting rules:
 - An `alphabet` is a single line of characters, delimited by whitespaces. Mind you that <b>the order of the characters is important</b> as their position represents their numeric value in the contract.
 
 - A `matrix` is a 2-dimensional grid, where the first row and first column are alphabetical characters. The remaining positions in the grid are integers (zero, negative or positive). <b>Again, the order of the alphabetical characters is important and should be the same as the corresponding alphabet!</b>
+
+### B. [zenode.config.js](/zenode.config.js)
+
+This is where most of the <i>personalization</i> for contract deployment and filling takes place. In the case of the `SubstitutionMatrices` contract this includes:
+
+- Choosing which alphabets/matrices get inserted or deleted in the `Population` phase.
+- Configuring which contract we'll interact with in the `Interaction` phase.
+- Expanding (or shrinking for that matter) the list of known alphabets and matrices.
 
 ## Credits
 
