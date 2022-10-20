@@ -6,7 +6,7 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
 
 ## TL;DR
 
-`Installation` <i>--use npm, yarn or any other package manager.</i>
+`1. Installation` <i>--use npm, yarn or any other package manager.</i>
 
 ```
 npm install
@@ -15,19 +15,19 @@ npm install
 yarn install
 ```
 
-`Run the test node` <i>--do this in a separate terminal!</i>
+`2. Run the test node` <i>--do this in a separate terminal!</i>
 
 ```script
 npx hardhat node
 ```
 
-`Deployment`
+`3. Deployment`
 
 ```
 npx hardhat run scripts/deploy.js
 ```
 
-`Contract address` <i>--add to [zenode.config.js](\zenode.config.js)</i>
+`4. Contract address` <i>--add to [zenode.config.js](\zenode.config.js)</i>
 
 ```javascript
 	...
@@ -40,14 +40,14 @@ npx hardhat run scripts/deploy.js
 	...
 ```
 
-`Population`
+`5. Population`
 
 ```
 npx run scripts/alphabets/insert.js
 npx run scripts/matrices/insert.js
 ```
 
-`Interaction` <i>--use the scripts provided in the [Interaction phase](#6-interaction).</i>
+`6. Interaction` <i>--use the scripts provided in the [Interaction phase](#6-interaction).</i>
 
 ## Dependencies
 
