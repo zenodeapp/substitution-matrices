@@ -185,7 +185,7 @@ They are simple .txt-files abiding by the following formatting rules:
 
 - An `alphabet` is a single line of characters, delimited by whitespaces. Mind you that <b>the order of the characters is important</b> as their position represents their numeric value in the contract.
 
-2. A `matrix` is a 2-dimensional grid, where the row- and column names are characters from their respective alphabet. <b>Again, the order of the characters is important and should be the same as the corresponding alphabet!</b>
+- A `matrix` is a 2-dimensional grid, where the first row and first column are alphabetical characters. The remaining positions in the grid are integers (zero, negative or positive). <b>Again, the order of the alphabetical characters is important and should be the same as the corresponding alphabet!</b>
 
 ## Credits
 
