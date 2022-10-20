@@ -83,6 +83,7 @@ By default, all (known) alphabets and matrices will be inserted upon running the
 
 ```javascript
 	{
+		// You could also pass in a single string instead of an array
 		alphabetsToInsert: ["ALPHABET_ID_1", "ALPHABET_ID_2", ...],
 		matricesToInsert: ["MATRIX_ID_1", "MATRIX_ID_2", ...],
 	}
@@ -98,8 +99,6 @@ For the `delete.js` script:
 ```
 
 `NOTE: The IDs are only valid if they are 'keys' found in the 'alphabets' and 'matrices' objects (more about this in the next sub-section).`
-
-`NOTE: You can also pass in 'strings' instead of 'arrays' if you're dealing with a single ID.`
 
 ##### 4.1.3 Creating new alphabets/matrices (Optional)
 
