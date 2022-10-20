@@ -28,7 +28,7 @@ npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
 
-[`4. Configuration`]([#4-configuration]) <i>--add address to [zenode.config.js](\zenode.config.js)</i>
+[`4. Configuration`](#4-configuration) <i>--add address to [zenode.config.js](\zenode.config.js)</i>
 
 ```javascript
 	...
