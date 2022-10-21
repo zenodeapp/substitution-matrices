@@ -28,7 +28,7 @@ npx hardhat node
 npx hardhat run scripts/deploy.js
 ```
 
-[`4. Configuration`](#4-configuration) <i>--add address to [zenode.config.js](\zenode.config.js)</i>
+[`4. Configuration`](#4-configuration) <i>--add address to [zenode.config.js](/zenode.config.js)</i>
 
 ```javascript
 	...
@@ -48,7 +48,7 @@ npx hardhat run scripts/alphabets/insert.js
 npx hardhat run scripts/matrices/insert.js
 ```
 
-[`6. Interaction`](#6-interaction) <i>--use the scripts provided in the [Interaction phase](#6-interaction).</i>
+[`6. Interaction`](#6-interaction) <i>--use the scripts provided in the [Interaction](#6-interaction) phase.</i>
 
 ## Dependencies
 
@@ -78,8 +78,8 @@ After having installed all dependencies, use:
 npx hardhat node
 ```
 
-`NOTE: Make sure to do this in a separate terminal!`
-<br>
+> Make sure to do this in a separate terminal!
+
 <br>
 This will create a test environment where we can deploy our contract(s) to. By default, this repository is configured to Hardhat's local test node, but can be changed in the [hardhat.config.js](/hardhat.config.js) file. For more information on how to do this, see [Hardhat's documentation](https://hardhat.org/hardhat-runner/docs/config).
 
@@ -91,15 +91,15 @@ Now that our node is up-and-running, we can deploy our contract using:
 npx hardhat run scripts/deploy.js
 ```
 
-If all went well, you should see a message appear in your terminal, stating that the contract was deployed successfully.
+> You should see a message appear in your terminal, stating that the contract was deployed successfully.
 
 ### 4. Configuration
 
-Before populating our freshly deployed CRUD, we'll first have to make a couple changes to the [zenode.config.js](/zenode.config.js) file ([learn more](#b-zenodeconfigjs)).
+Before populating our freshly deployed CRUD, we'll first have to make a couple changes to [zenode.config.js](/zenode.config.js) ([learn more](#b-zenodeconfigjs)).
 
 #### 4.1 Link contract address (required)
 
-To know where we have to insert our alphabets and matrices, we'll have to add the address of our deployed contract to the `contracts` object.
+We add the address of our contract to the `contracts` object. That way it knows which deployed contract it should interact with.
 
 ```javascript
 	...
@@ -112,12 +112,11 @@ To know where we have to insert our alphabets and matrices, we'll have to add th
 	...
 ```
 
-`NOTE: The contract address can be found in your terminal after deployment.`
-<br>
+> The contract address can be found in your terminal after deployment.
 
 #### 4.2 Editing insertions/deletions (Optional)
 
-By default, all known alphabets and matrices will be inserted upon running the `insert.js` script (in the [`Population` phase](#5-population)). If you would like to change this, edit the following key-value pairs:
+By default, all known alphabets and matrices will be inserted upon running the `insert.js` script (in the [`Population`](#5-population) phase). If you would like to change this, edit the following key-value pairs:
 
 ```javascript
 	{
@@ -136,11 +135,73 @@ and for the `delete.js` script:
 	}
 ```
 
-`NOTE: The IDs are only valid if they are 'keys' found in the 'alphabets' and 'matrices' objects (more about this in the next sub-section).`
+> NOTE: IDs are only valid if they are `keys` in the `alphabets` or `matrices` objects (see [4.3](#43-adding-new-alphabetsmatrices-optional)).
 
-#### 4.3 Creating new alphabets/matrices (Optional)
+#### 4.3 Adding new alphabets/matrices (Optional)
 
-...
+There are two steps to consider when adding new alphabets or matrices, namely:
+
+1. The creation of the actual file that represents our new dataset, and
+2. Creating a reference to this dataset in [zenode.config.js](/zenode.config.js).
+
+For step one it's important to know what data our text parser expects. For this it might be best to look at the files we've already included in the [datasets](/datasets)-folder. I also suggest to read more about the formatting in the Appendix ([A. Alphabets and Matrices](#a-alphabets-and-matrices)).
+
+For the second step we add our new dataset to one of the following objects:
+
+<b>`alphabets`</b>
+
+```javascript
+  alphabets: {
+    ALPHABET_ID_1: "ALPHABET_ID_1_RELATIVE_PATH",
+    ALPHABET_ID_2: "ALPHABET_ID_2_RELATIVE_PATH",
+    ...
+  },
+```
+
+or <b>`matrices`</b>
+
+```javascript
+  matrices: {
+    MATRIX_ID_1: {
+      alphabet: "ALPHABET_ID_2",
+      file: "MATRIX_ID_1_RELATIVE_PATH",
+    },
+    MATRIX_ID_2: {
+      alphabet: "ALPHABET_ID_1",
+      file: "MATRIX_ID_2_RELATIVE_PATH",
+    },
+    ...
+  },
+```
+
+##### 4.3.1 Remarks
+
+- The `alphabets`-object only requires an `ID` and `RELATIVE_PATH`.
+- The `matrices`-object on the other hand also requires you to add an `ALPHABET_ID`.
+- The `IDs` serve as references in `alphabetsToInsert`, `alphabetsToDelete`, `matricesToInsert` and `matricesToDelete` (see [4.2](#42-editing-insertionsdeletions-optional)).
+
+##### 4.3.2 Examples
+
+`alphabet aa` (amino acids; protein sequence characters):
+
+```javascript
+  alphabets: {
+    aa: "datasets/alphabets/aa.txt",
+  }
+```
+
+`matrix blosum100` using `alphabet aa`:
+
+```javascript
+  matrices: {
+    blosum100: {
+      alphabet: "aa",
+      file: "datasets/matrices/blosum100.txt",
+    },
+  },
+```
+
+> IMPORTANT: a new alphabet or matrix doesn't get inserted into the contract if it's not included in the `alphabetsToInsert` or `matricesToInsert` key-value pair! (see [4.2](#42-editing-insertionsdeletions-optional))
 
 ### 5. Population
 
@@ -158,7 +219,7 @@ npx hardhat run scripts/alphabets/insert.js
 npx hardhat run scripts/matrices/insert.js
 ```
 
-`NOTE: you can't insert a matrix before inserting the alphabet it belongs to!`
+> NOTE: you can't insert a matrix before inserting the alphabet it belongs to!
 
 #### 5.2 Deletion
 
@@ -174,7 +235,9 @@ npx hardhat run scripts/matrices/delete.js
 
 ### 6. Interaction
 
-Deployed, populated and ready to explore! Here are a few Hardhat tasks (written in [hardhat.config.js](\hardhat.config.js)) to test our contract with:
+Deployed, populated and ready to explore!
+
+Here are a few Hardhat tasks (written in [hardhat.config.js](/hardhat.config.js)) to test our contract with:
 
 <ul>
 <li>
@@ -249,20 +312,24 @@ npx hardhat getMatrices
 
 ### A. Alphabets and Matrices
 
-Alphabets and Matrices are the two main components in the `SubstitutionMatrices` contract. `Alphabets` (currently) being: `nucleotide or protein sequence characters` (e.g. C, T, A and G) and `Matrices`: `2-dimensional grids` (e.g. BLOSUM62, PAM40, PAM120, etc.). To gain a better visual understanding, check out the alphabets and matrices included in the [datasets](/datasets)-folder.
+`Alphabets` and `Matrices` are the two main components of the `SubstitutionMatrices` contract. Alphabets include but are not limited to nucleotide and protein sequence characters (e.g. C, T, A and G), while matrices are 2-dimensional scoring grids (e.g. BLOSUM62, PAM40, PAM120, etc.). To get a better (visual) understanding, you should check out the alphabets and matrices included in the [datasets](/datasets)-folder.
 
-They are simple .txt-files abiding by the following formatting rules:
+These components are simple .txt-files that abide by the following formatting rules:
 
-- An `alphabet` is a single line of characters, delimited by whitespaces. Mind you that <b>the order of the characters is important</b> as their position represents their numeric value in the contract.
-
-- A `matrix` is a 2-dimensional grid, where the first row and first column are alphabetical characters. The remaining positions in the grid are integers (zero, negative or positive). <b>Again, the order of the alphabetical characters is important and should be the same as the corresponding alphabet!</b>
+- An `alphabet` is a single line of characters, where <b>the position of a character represents its numeric value</b>.
+- A `matrix` is a 2-dimensional grid, where the <i>first row</i> and <i>first column</i> consist of <i>only-alphabetical</i> characters.
+- The remaining positions of a `matrix` are integers (zero, negative or positive).
+- <b>The order of the <i>alphabetical</i> characters inside a `matrix` should be the same as the `alphabet` it belongs to (horizontally and vertically)</b>.
+- Every <i>alphanumerical</i> character, for both `alphabet` and `matrix`, is delimited by whitespaces.
 
 ### B. [zenode.config.js](/zenode.config.js)
 
-This is where most of the <i>personalization</i> for contract deployment and filling takes place. In the case of the `SubstitutionMatrices` contract this includes:
+This is where most of the <i>personalization</i> for contract deployment and filling takes place.
 
-- Choosing which alphabets/matrices get inserted or deleted in the `Population` phase.
-- Configuring which contract we'll interact with in the `Interaction` phase.
+In the case of the `SubstitutionMatrices` contract this includes:
+
+- Choosing which alphabets/matrices get inserted or deleted in the [`Population`](#5-population) phase.
+- Configuring which contract we'll interact with in the [`Interaction`](#6-interaction) phase.
 - Expanding (or shrinking for that matter) the list of known alphabets and matrices.
 
 ## Credits
