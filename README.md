@@ -72,7 +72,7 @@ yarn install
 
 ### 2. Configure and run your (test) node
 
-After having installed all dependencies use:
+After having installed all dependencies, use:
 
 ```script
 npx hardhat node
@@ -95,7 +95,7 @@ If all went well, you should see a message appear in your terminal, stating that
 
 ### 4. Configuration
 
-Before populating our freshly deployed CRUD, we'll first have to make a couple changes to our [zenode.config.js](/zenode.config.js) file ([learn more](#b-zenodeconfigjs)).
+Before populating our freshly deployed CRUD, we'll first have to make a couple changes to the [zenode.config.js](/zenode.config.js) file ([learn more](#b-zenodeconfigjs)).
 
 #### 4.1 Link contract address (required)
 
@@ -117,7 +117,7 @@ To know where we have to insert our alphabets and matrices, we'll have to add th
 
 #### 4.2 Editing insertions/deletions (Optional)
 
-By default, all (known) alphabets and matrices will be inserted upon running the `insert.js` script (`Population` phase). If you would like to change this, you could. Just edit the following key-value pairs:
+By default, all known alphabets and matrices will be inserted upon running the `insert.js` script (in the [`Population` phase](#5-population)). If you would like to change this, edit the following key-value pairs:
 
 ```javascript
 	{
@@ -127,7 +127,7 @@ By default, all (known) alphabets and matrices will be inserted upon running the
 	}
 ```
 
-For the `delete.js` script:
+and for the `delete.js` script:
 
 ```javascript
 	{
@@ -146,23 +146,31 @@ For the `delete.js` script:
 
 Now that we've deployed our contract and configured our setup, we can start populating our CRUD with alphabets and matrices!
 
-#### 5.1 Alphabets
+#### 5.1 Insertion
 
-To insert all the alphabets you've configured in the key-value pair `alphabetsToInsert` use:
+To insert all the alphabets/matrices you've configured in the key-value pair `alphabetsToInsert`/`matricesToInsert` use:
 
 ```
 npx hardhat run scripts/alphabets/insert.js
 ```
-
-#### 5.2 Matrices
-
-To insert all the matrices you've configured in the key-value pair `matricesToInsert` use:
 
 ```
 npx hardhat run scripts/matrices/insert.js
 ```
 
 `NOTE: you can't insert a matrix before inserting the alphabet it belongs to!`
+
+#### 5.2 Deletion
+
+To delete all the alphabets/matrices you've configured in the key-value pair `alphabetsToDelete`/`matricesToDelete` use:
+
+```
+npx hardhat run scripts/alphabets/delete.js
+```
+
+```
+npx hardhat run scripts/matrices/delete.js
+```
 
 ### 6. Interaction
 
@@ -171,8 +179,11 @@ Deployed, populated and ready to explore! Here are a few Hardhat tasks (written 
 <ul>
 <li>
 
-`getScore`
-output: int <i>--value represents the score of two characters in the substitution matrix</i>
+<b>getScore</b>
+
+- `input:` `--matrix string` `--a char` `--b char`
+
+- `output:` `int` <i>--value represents the score based on the given substitution matrix</i>
 
 ```
 npx hardhat getScore --matrix "MATRIX_ID" --a "SINGLE_CHAR_A" --b "SINGLE_CHAR_B"
@@ -182,8 +193,11 @@ npx hardhat getScore --matrix "MATRIX_ID" --a "SINGLE_CHAR_A" --b "SINGLE_CHAR_B
 
 <li>
 
-`getAlphabet`
-output: struct Alphabet <i>--see [libraries/Structs.sol](/libraries/Structs.sol)</i>
+<b>getAlphabet</b>
+
+- `input:` `--id string`
+
+- `output:` `struct Alphabet` <i>--see [libraries/Structs.sol](/libraries/Structs.sol)</i>
 
 ```
 npx hardhat getAlphabet --id "ALPHABET_ID"
@@ -192,8 +206,11 @@ npx hardhat getAlphabet --id "ALPHABET_ID"
 </li>
 <li>
 
-`getMatrix`
-output: struct Matrix <i>--see [libraries/Structs.sol](/libraries/Structs.sol)</i>
+<b>getMatrix</b>
+
+- `input:` `--id string`
+
+- `output:` `struct Matrix` <i>--see [libraries/Structs.sol](/libraries/Structs.sol)</i>
 
 ```
 npx hardhat getMatrix --id "MATRIX_ID"
@@ -202,8 +219,11 @@ npx hardhat getMatrix --id "MATRIX_ID"
 </li>
 <li>
 
-`getAlphabets`
-output: string[]
+<b>getAlphabets</b>
+
+- `input:` `null`
+
+- `output:` `string[]`
 
 ```
 npx hardhat getAlphabets
@@ -212,8 +232,11 @@ npx hardhat getAlphabets
 </li>
 <li>
 
-`getMatrices`
-output: string[]
+<b>getMatrices</b>
+
+- `input:` `null`
+
+- `output:` `string[]`
 
 ```
 npx hardhat getMatrices
