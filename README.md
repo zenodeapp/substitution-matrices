@@ -81,6 +81,7 @@ npx hardhat node
 > Make sure to do this in a separate terminal!
 
 <br>
+
 This will create a test environment where we can deploy our contract(s) to. By default, this repository is configured to Hardhat's local test node, but can be changed in the [hardhat.config.js](/hardhat.config.js) file. For more information on how to do this, see [Hardhat's documentation](https://hardhat.org/hardhat-runner/docs/config).
 
 ### 3. Deployment
