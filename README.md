@@ -310,7 +310,7 @@ npx hardhat getMatrices
 
 ## Appendix
 
-### A. Alphabets and Matrices
+### A. [Alphabets and Matrices](/datasets)
 
 `Alphabets` and `Matrices` are the two main components of the `SubstitutionMatrices` contract. Alphabets include but are not limited to nucleotide and protein sequence characters (e.g. C, T, A and G), while matrices are 2-dimensional scoring grids (e.g. BLOSUM62, PAM40, PAM120, etc.). To get a better (visual) understanding, you should check out the alphabets and matrices included in the [datasets](/datasets)-folder.
 
