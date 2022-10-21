@@ -37,14 +37,14 @@ npx hardhat run scripts/deploy.js
 [`4. Configuration`](#4-configuration) <i>--add address to [zenode.config.js](/zenode.config.js)</i>
 
 ```javascript
-	...
-	contracts: {
-		substitutionMatrices: {
-			name: "SubstitutionMatrices",
-			address: "ADD_YOUR_CONTRACT_ADDRESS_HERE",
-		},
-	},
-	...
+  ...
+  contracts: {
+    substitutionMatrices: {
+      name: "SubstitutionMatrices",
+      address: "ADD_YOUR_CONTRACT_ADDRESS_HERE",
+    },
+  },
+  ...
 ```
 
 [`5. Population`](#5-population)
@@ -102,14 +102,14 @@ Before populating our freshly deployed CRUD, we'll first have to make a couple c
 We add the address of our contract to the `contracts` object. That way it knows which deployed contract it should interact with.
 
 ```javascript
-	...
-	contracts: {
-		substitutionMatrices: {
-			name: "SubstitutionMatrices",
-			address: "ADD_YOUR_CONTRACT_ADDRESS_HERE",
-		},
-	},
-	...
+  ...
+  contracts: {
+    substitutionMatrices: {
+      name: "SubstitutionMatrices",
+      address: "ADD_YOUR_CONTRACT_ADDRESS_HERE",
+    },
+  },
+  ...
 ```
 
 > The contract address can be found in your terminal after deployment.
@@ -119,20 +119,20 @@ We add the address of our contract to the `contracts` object. That way it knows 
 By default, all known alphabets and matrices will be inserted upon running the `insert.js` script (in the [`Population`](#5-population) phase). If you would like to change this, edit the following key-value pairs:
 
 ```javascript
-	{
-		// You could also pass in a string instead of an array
-		alphabetsToInsert: ["ALPHABET_ID_1", "ALPHABET_ID_2", ...],
-		matricesToInsert: ["MATRIX_ID_1", "MATRIX_ID_2", ...],
-	}
+  {
+    // You could also pass in a string instead of an array
+    alphabetsToInsert: ["ALPHABET_ID_1", "ALPHABET_ID_2", ...],
+    matricesToInsert: ["MATRIX_ID_1", "MATRIX_ID_2", ...],
+  }
 ```
 
 and for the `delete.js` script:
 
 ```javascript
-	{
-		alphabetsToDelete: ["ALPHABET_ID_1", "ALPHABET_ID_2", ...],
-		matricesToDelete: ["MATRIX_ID_1", "MATRIX_ID_2", ...],
-	}
+  {
+    alphabetsToDelete: ["ALPHABET_ID_1", "ALPHABET_ID_2", ...],
+    matricesToDelete: ["MATRIX_ID_1", "MATRIX_ID_2", ...],
+  }
 ```
 
 > NOTE: IDs are only valid if they are `keys` in the `alphabets` or `matrices` objects (see [4.3](#43-adding-new-alphabetsmatrices-optional)).
@@ -198,7 +198,7 @@ or <b>`matrices`</b>
       alphabet: "aa",
       file: "datasets/matrices/blosum100.txt",
     },
-  },
+  }
 ```
 
 > IMPORTANT: a new alphabet or matrix doesn't get inserted into the contract if it's not included in the `alphabetsToInsert` or `matricesToInsert` key-value pair! (see [4.2](#42-editing-insertionsdeletions-optional))
