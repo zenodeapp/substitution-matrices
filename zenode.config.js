@@ -7,38 +7,38 @@ module.exports = {
   },
 
   alphabets: {
-    nt: "datasets/alphabets/nt.txt",
-    aa: "datasets/alphabets/aa.txt",
+    nt: "dataset/alphabets/nt.txt",
+    aa: "dataset/alphabets/aa.txt",
   },
 
   matrices: {
     simple: {
       alphabet: "nt",
-      file: "datasets/matrices/nt/simple.txt",
+      file: "dataset/matrices/nt/simple.txt",
     },
     smart: {
       alphabet: "nt",
-      file: "datasets/matrices/nt/smart.txt",
+      file: "dataset/matrices/nt/smart.txt",
     },
     blosum50: {
       alphabet: "aa",
-      file: "datasets/matrices/aa/blosum50.txt",
+      file: "dataset/matrices/aa/blosum50.txt",
     },
     blosum62: {
       alphabet: "aa",
-      file: "datasets/matrices/aa/blosum62.txt",
+      file: "dataset/matrices/aa/blosum62.txt",
     },
     pam40: {
       alphabet: "aa",
-      file: "datasets/matrices/aa/pam40.txt",
+      file: "dataset/matrices/aa/pam40.txt",
     },
     pam120: {
       alphabet: "aa",
-      file: "datasets/matrices/aa/pam120.txt",
+      file: "dataset/matrices/aa/pam120.txt",
     },
     pam250: {
       alphabet: "aa",
-      file: "datasets/matrices/aa/pam250.txt",
+      file: "dataset/matrices/aa/pam250.txt",
     },
   },
 
