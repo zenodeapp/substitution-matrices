@@ -4,59 +4,92 @@ A CRUD for Substitution Matrices like BLOSUM50, BLOSUM62, PAM240 and more; commo
 
 This has been built by ZENODE within the Hardhat environment and is licensed under the MIT-license (see [LICENSE.md](./LICENSE.md)).
 
-## Dependencies
+## Overview
+
+### Dependencies
 
 - `hardhat` (npm module)
 - `web3` (npm module)
-- Uses the [`zenode-helpers`](/submodules/zenode-helpers) repository, which is automatically included as a Git submodule.
+- Uses the [`zenode-helpers`](/submodules) repository, which is automatically included as a Git submodule.
 
-## TL;DR
+### Features
 
-[`1. Installation`](#1-installation) <i>--use npm, yarn or any other package manager.</i>
+- CRUD in Solidity; immutable code, but flexible by design.
+- Modular; loose coupling and high cohesion promote easy implementation into other contracts.
+- Re-usable; suffice to deploy only once and use in multiple contracts.
+- Ownership; Access control and administrative privilege management.
 
-```
-npm install
-```
+### Datasets
 
-```
-yarn install
-```
+- AA (AMINO ACIDS; PROTEINS)
+   - BLOSUM50
+   - BLOSUM62
+   - PAM40
+   - PAM120
+   - PAM240
+- NT (NUCLEOTIDES; DNA)
+   - SIMPLE
+   - SMART
+   
+### Hardhat scripts & tasks
 
-[`2. Run the test node`](#2-configure-and-run-your-test-node) <i>--do this in a separate terminal!</i>
+- Hardhat scripts
+   - deploy.js - deploys the contract to the configured network.
+   - insert.js - reads, parses and inserts matrices or alphabets.
+   - delete.js - deletes matrices or alphabets.
+- Hardhat tasks for contract interaction (see [Interaction](#6-interaction)).
+   
+### Extra
 
-```script
-npx hardhat node
-```
-
-[`3. Deployment`](#3-deployment)
-
-```
-npx hardhat run scripts/deploy.js
-```
-
-[`4. Configuration`](#4-configuration) <i>--add address to [zenode.config.js](/zenode.config.js)</i>
-
-```javascript
-...
-contracts: {
-  substitutionMatrices: {
-    name: "SubstitutionMatrices",
-    address: "ADD_YOUR_CONTRACT_ADDRESS_HERE",
-  },
-},
-...
-```
-
-[`5. Population`](#5-population)
-
-```
-npx hardhat run scripts/alphabets/insert.js
-npx hardhat run scripts/matrices/insert.js
-```
-
-[`6. Interaction`](#6-interaction) <i>--use the scripts provided in the [Interaction](#6-interaction) phase.</i>
+- AWK text parsers that convert matrices and alphabets into Solidity code.
 
 ## Getting Started
+
+### TL;DR
+> 
+> [`1. Installation`](#1-installation) <i>--use npm, yarn or any other package manager.</i>
+> 
+> ```
+> npm install
+> ```
+> 
+> ```
+> yarn install
+> ```
+> 
+> [`2. Run the test node`](#2-configure-and-run-your-test-node) <i>--do this in a separate terminal!</i>
+> 
+> ```script
+> npx hardhat node
+> ```
+> 
+> [`3. Deployment`](#3-deployment)
+> 
+> ```
+> npx hardhat run scripts/deploy.js
+> ```
+> 
+> [`4. Configuration`](#4-configuration) <i>--add address to [zenode.config.js](/zenode.config.js)</i>
+> 
+> ```javascript
+> ...
+> contracts: {
+>   substitutionMatrices: {
+>     name: "SubstitutionMatrices",
+>     address: "ADD_YOUR_CONTRACT_ADDRESS_HERE",
+>   },
+> },
+> ...
+> ```
+> 
+> [`5. Population`](#5-population)
+> 
+> ```
+> npx hardhat run scripts/alphabets/insert.js
+> npx hardhat run scripts/matrices/insert.js
+> ```
+> 
+> [`6. Interaction`](#6-interaction) <i>--use the scripts provided in the [Interaction](#6-interaction) phase.</i>
 
 ### 1. Installation
 
