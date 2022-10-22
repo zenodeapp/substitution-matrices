@@ -1,6 +1,6 @@
 # Substitution Matrices
 
-A CRUD for Substitution Matrices like BLOSUM50, BLOSUM62, PAM240 and more; commonly used in bioinformatics and evolutionary biology.
+A CRUD for Substitution Matrices like BLOSUM50, BLOSUM62, PAM250 and more; commonly used in bioinformatics and evolutionary biology.
 
 This has been built by ZENODE within the Hardhat environment and is licensed under the MIT-license (see [LICENSE.md](./LICENSE.md)).
 
@@ -16,61 +16,61 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
 
 - CRUD in Solidity; immutable code, but flexible by design.
 - Modular; loose coupling and high cohesion promote easy implementation into other contracts.
-- Re-usable; suffice to deploy only once and use in multiple contracts.
-- Ownership; Access control and administrative privilege management.
+- Re-usable; deploy only once and use in multiple contracts.
+- Ownership; access control and administrative privilege management.
 
-### Datasets
+### Dataset
 
-- AA (AMINO ACIDS; PROTEINS)
-   - BLOSUM50
-   - BLOSUM62
-   - PAM40
-   - PAM120
-   - PAM240
-- NT (NUCLEOTIDES; DNA)
-   - SIMPLE
-   - SMART
-   
-### Hardhat scripts & tasks
+- [AA](dataset/alphabets/aa.txt) (Amino acids; alphabet for Proteins)
+  - [BLOSUM50](dataset/matrices/aa/blosum50.txt)
+  - [BLOSUM62](dataset/matrices/aa/blosum62.txt)
+  - [PAM40](dataset/matrices/aa/pam40.txt)
+  - [PAM120](dataset/matrices/aa/pam120.txt)
+  - [PAM250](dataset/matrices/aa/pam250.txt)
+- [NT](dataset/alphabets/nt.txt) (Nucleotides; alphabet for DNA, also known as the 'Nucleic acid notation')
+  - [SIMPLE](dataset/matrices/nt/simple.txt)
+  - [SMART](dataset/matrices/nt/smart.txt)
 
-- Hardhat scripts
-   - deploy.js - deploys the contract to the configured network.
-   - insert.js - reads, parses and inserts matrices or alphabets.
-   - delete.js - deletes matrices or alphabets.
-- Hardhat tasks for contract interaction (see [Interaction](#6-interaction)).
-   
-### Extra
+### Hardhat
 
-- AWK text parsers that convert matrices and alphabets into Solidity code.
+- Scripts
+  - deploy.js - deploys the contract to the configured network.
+  - insert.js - reads, parses and inserts matrices or alphabets.
+  - delete.js - deletes matrices or alphabets.
+- Tasks for contract interaction (see [Interaction](#6-interaction)).
+
+### AWK
+
+- Text parsers that convert matrices and alphabets into Solidity code.
 
 ## Getting Started
 
 ### TL;DR
-> 
+
 > [`1. Installation`](#1-installation) <i>--use npm, yarn or any other package manager.</i>
-> 
+>
 > ```
 > npm install
 > ```
-> 
+>
 > ```
 > yarn install
 > ```
-> 
+>
 > [`2. Run the test node`](#2-configure-and-run-your-test-node) <i>--do this in a separate terminal!</i>
-> 
+>
 > ```script
 > npx hardhat node
 > ```
-> 
+>
 > [`3. Deployment`](#3-deployment)
-> 
+>
 > ```
 > npx hardhat run scripts/deploy.js
 > ```
-> 
+>
 > [`4. Configuration`](#4-configuration) <i>--add address to [zenode.config.js](/zenode.config.js)</i>
-> 
+>
 > ```javascript
 > ...
 > contracts: {
@@ -81,14 +81,14 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
 > },
 > ...
 > ```
-> 
+>
 > [`5. Population`](#5-population)
-> 
+>
 > ```
 > npx hardhat run scripts/alphabets/insert.js
 > npx hardhat run scripts/matrices/insert.js
 > ```
-> 
+>
 > [`6. Interaction`](#6-interaction) <i>--use the scripts provided in the [Interaction](#6-interaction) phase.</i>
 
 ### 1. Installation
@@ -178,7 +178,7 @@ There are two steps to consider when adding new alphabets or matrices, namely:
 1. The creation of the actual file that represents our new dataset, and
 2. Creating a reference to this dataset in [zenode.config.js](/zenode.config.js).
 
-For step one it's important to know what data our text parser expects. For this it might be best to look at the files we've already included in the [datasets](/datasets)-folder. I also suggest to read more about the formatting in the Appendix ([A. Alphabets and Matrices](#a-alphabets-and-matrices)).
+For step one it's important to know what data our text parser expects. For this it might be best to look at the files we've already included in the [dataset](/dataset)-folder. I also suggest to read more about the formatting in the Appendix ([A. Alphabets and Matrices](#a-alphabets-and-matrices)).
 
 For the second step we add our new dataset to one of the following objects:
 
@@ -220,7 +220,7 @@ matrices: {
 
 ```javascript
 alphabets: {
-  aa: "datasets/alphabets/aa.txt",
+  aa: "dataset/alphabets/aa.txt",
 }
 ```
 
@@ -230,7 +230,7 @@ alphabets: {
 matrices: {
   blosum100: {
     alphabet: "aa",
-    file: "datasets/matrices/blosum100.txt",
+    file: "dataset/matrices/blosum100.txt",
   },
 }
 ```
@@ -344,9 +344,9 @@ npx hardhat getMatrices
 
 ## Appendix
 
-### A. [Alphabets and Matrices](/datasets)
+### A. [Alphabets and Matrices](/dataset)
 
-`Alphabets` and `Matrices` are the two main components of the `SubstitutionMatrices` contract. Alphabets include but are not limited to nucleotide and protein sequence characters (e.g. C, T, A and G), while matrices are 2-dimensional scoring grids (e.g. BLOSUM62, PAM40, PAM120, etc.). To get a better (visual) understanding, you should check out the alphabets and matrices included in the [datasets](/datasets)-folder.
+`Alphabets` and `Matrices` are the two main components of the `SubstitutionMatrices` contract. Alphabets include but are not limited to nucleotide and protein sequence characters (e.g. C, T, A and G), while matrices are 2-dimensional scoring grids (e.g. BLOSUM62, PAM40, PAM120, etc.). To get a better (visual) understanding, you should check out the alphabets and matrices included in the [dataset](/dataset)-folder.
 
 These components are simple .txt-files that abide by the following formatting rules:
 
