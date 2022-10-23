@@ -1,6 +1,6 @@
 # Substitution Matrices
 
-A CRUD for Substitution Matrices like BLOSUM50, BLOSUM62, PAM250 and more; commonly used in bioinformatics and evolutionary biology.
+A CRUD for substitution matrices like BLOSUM50, BLOSUM62, PAM250 and more; commonly used in Bioinformatics and Evolutionary Biology.
 
 This has been built by ZENODE within the Hardhat environment and is licensed under the MIT-license (see [LICENSE.md](./LICENSE.md)).
 
