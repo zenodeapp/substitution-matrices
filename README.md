@@ -112,7 +112,7 @@ git clone --recursive https://github.com/zenodeapp/substitution-matrices.git <de
 If you've already downloaded or cloned this repository without including the `--recursive` flag, then run this command from the root folder:
 
 ```
-git submodule update --init
+git submodule update --init --recursive
 ```
 
 ### 1. Installation
