@@ -1,5 +1,4 @@
 [submodule "submodules/zenode-contracts"]
 	path = submodules/zenode-contracts
 	url = https://github.com/zenodeapp/zenode-contracts.git
-[submodule "zenode-contracts"]
 	branch = main
