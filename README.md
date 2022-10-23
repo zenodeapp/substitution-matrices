@@ -47,6 +47,12 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
 
 ### TL;DR
 
+> [`0. Clone (recursively!)`](#0-clone)
+>
+> ```
+> git clone --recursive https://github.com/zenodeapp/substitution-matrices.git <destination_folder>
+> ```
+>
 > [`1. Installation`](#1-installation) <i>--use npm, yarn or any other package manager.</i>
 >
 > ```
@@ -91,9 +97,27 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
 >
 > [`6. Interaction`](#6-interaction) <i>--use the scripts provided in the [Interaction](#6-interaction) phase.</i>
 
+### 0. Clone
+
+To get started, clone the repository with the `--recursive` flag:
+
+```
+git clone --recursive https://github.com/zenodeapp/substitution-matrices.git <destination_folder>
+```
+
+>  This repository includes submodules and should thus contain the `--recursive` flag.
+
+<br>
+
+If you've already downloaded or cloned this repository without including the `--recursive` flag, then run this command from the root folder:
+
+```
+git submodule update --init
+```
+
 ### 1. Installation
 
-To get started, install all dependencies using a package manager of your choosing:
+Install all dependencies using a package manager of your choosing:
 
 ```
 npm install
