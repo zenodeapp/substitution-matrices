@@ -10,7 +10,7 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
 
 - `hardhat` (npm module)
 - `web3` (npm module)
-- Uses the [`zenode-helpers`](/submodules) repository, which is automatically included as a Git submodule.
+- Uses the [`zenode-contracts`](/submodules) repository, which is automatically included as a Git submodule.
 
 ### Features
 

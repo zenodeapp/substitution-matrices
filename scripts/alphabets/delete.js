@@ -1,4 +1,6 @@
-const { getContract } = require("../../submodules/zenode-helpers/helpers/web3");
+const {
+  getContract,
+} = require("../../submodules/zenode-contracts/helpers/web3");
 const { contracts, alphabetsToDelete } = require("../../zenode.config");
 
 async function main() {
