@@ -105,7 +105,7 @@ To get started, clone the repository with the `--recursive` flag:
 git clone --recursive https://github.com/zenodeapp/substitution-matrices.git <destination_folder>
 ```
 
->  This repository includes submodules and should thus contain the `--recursive` flag.
+> This repository includes submodules and should thus contain the `--recursive` flag.
 
 <br>
 
@@ -304,9 +304,11 @@ Here are a few Hardhat tasks (written in [hardhat.config.js](/hardhat.config.js)
 
 <b>getScore</b>
 
+Get the alignment score of two characters based on the given substitution matrix.
+
 - `input:` `--matrix string` `--a char` `--b char`
 
-- `output:` `int` <i>--value represents the score based on the given substitution matrix</i>
+- `output:` `int`
 
 ```
 npx hardhat getScore --matrix "MATRIX_ID" --a "SINGLE_CHAR_A" --b "SINGLE_CHAR_B"
@@ -317,6 +319,8 @@ npx hardhat getScore --matrix "MATRIX_ID" --a "SINGLE_CHAR_A" --b "SINGLE_CHAR_B
 <li>
 
 <b>getAlphabet</b>
+
+Returns an alphabet-object based on the given ALPHABET_ID.
 
 - `input:` `--id string`
 
@@ -331,6 +335,8 @@ npx hardhat getAlphabet --id "ALPHABET_ID"
 
 <b>getMatrix</b>
 
+Returns a matrix-object based on the given MATRIX_ID.
+
 - `input:` `--id string`
 
 - `output:` `struct Matrix` <i>--see [libraries/Structs.sol](/libraries/Structs.sol)</i>
@@ -344,6 +350,8 @@ npx hardhat getMatrix --id "MATRIX_ID"
 
 <b>getAlphabets</b>
 
+Returns the list of inserted ALPHABET_IDs.
+
 - `input:` `null`
 
 - `output:` `string[]`
@@ -356,6 +364,8 @@ npx hardhat getAlphabets
 <li>
 
 <b>getMatrices</b>
+
+Returns the list of inserted MATRIX_IDs.
 
 - `input:` `null`
 
