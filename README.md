@@ -295,6 +295,8 @@ npx hardhat run scripts/matrices/delete.js
 
 Deployed, populated and ready to explore!
 
+<br>
+
 Here are a few Hardhat tasks (written in [hardhat.config.js](/hardhat.config.js)) to test our contract with:
 
 <ul>
