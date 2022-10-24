@@ -384,7 +384,7 @@ These components are simple .txt-files that abide by the following formatting ru
 
 This is where most of the <i>personalization</i> for contract deployment and filling takes place.
 
-In the case of the `SubstitutionMatrices` contract this includes:
+In the case of the `substitution-matrices` repository this includes:
 
 - Choosing which alphabets/matrices get inserted or deleted in the [`Population`](#5-population) phase.
 - Configuring which contract we'll interact with in the [`Interaction`](#6-interaction) phase.
