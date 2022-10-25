@@ -27,7 +27,7 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
   - [PAM40](dataset/matrices/aa/pam40.txt)
   - [PAM120](dataset/matrices/aa/pam120.txt)
   - [PAM250](dataset/matrices/aa/pam250.txt)
-- [NT](dataset/alphabets/nt.txt) (Nucleotides; alphabet for DNA, also known as the 'Nucleic acid notation')
+- [NT](dataset/alphabets/nt.txt) (Nucleotides; alphabet for DNA — also known as the 'Nucleic acid notation')
   - [SIMPLE](dataset/matrices/nt/simple.txt)
   - [SMART](dataset/matrices/nt/smart.txt)
 
@@ -37,7 +37,7 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
   - deploy.js - deploys the contract to the configured network.
   - insert.js - reads, parses and inserts matrices or alphabets.
   - delete.js - deletes matrices or alphabets.
-- Tasks for contract interaction (see [Interaction](#6-interaction)).
+- Tasks for contract interaction (see [6. Interaction](#6-interaction)).
 
 ### AWK
 
@@ -47,7 +47,7 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
 
 ### TL;DR
 
-> [`0. Clone (recursively!)`](#0-clone)
+> [`0. Clone`](#0-clone) <i>--use the --recursive flag.</i>
 >
 > ```
 > git clone --recursive https://github.com/zenodeapp/substitution-matrices.git <destination_folder>
@@ -75,7 +75,7 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
 > npx hardhat run scripts/deploy.js
 > ```
 >
-> [`4. Configuration`](#4-configuration) <i>--add address to [zenode.config.js](/zenode.config.js)</i>
+> [`4. Configuration`](#4-configuration) <i>--add the contract address to [zenode.config.js](/zenode.config.js)</i>.
 >
 > ```javascript
 > ...
@@ -92,6 +92,9 @@ This has been built by ZENODE within the Hardhat environment and is licensed und
 >
 > ```
 > npx hardhat run scripts/alphabets/insert.js
+> ```
+>
+> ```
 > npx hardhat run scripts/matrices/insert.js
 > ```
 >
@@ -153,7 +156,7 @@ npx hardhat run scripts/deploy.js
 
 ### 4. Configuration
 
-Before populating our freshly deployed CRUD, we'll first have to make a couple changes to [zenode.config.js](/zenode.config.js) ([learn more](#b-zenodeconfigjs)).
+Our CRUD is deployed, but doesn't contain any data whatsoever. Before we go ahead and populate it with alphabets and matrices, we'll have to make a couple of changes to the [zenode.config.js](zenode.config.js) file.
 
 #### 4.1 Link contract address (required)
 
@@ -174,7 +177,9 @@ contracts: {
 
 #### 4.2 Editing insertions/deletions (Optional)
 
-By default, all known alphabets and matrices will be inserted upon running the `insert.js` script (in the [`Population`](#5-population) phase). If you would like to change this, edit the following key-value pairs:
+By default, all known alphabets and matrices will be inserted upon running the `insert.js` scripts (in the [Population](#5-population) phase).
+
+If you would like to change this behavior, edit the following key-value pairs:
 
 ```javascript
 {
@@ -184,7 +189,7 @@ By default, all known alphabets and matrices will be inserted upon running the `
 }
 ```
 
-and for the `delete.js` script:
+and for the `delete.js` scripts:
 
 ```javascript
 {
@@ -193,7 +198,7 @@ and for the `delete.js` script:
 }
 ```
 
-> NOTE: IDs are only valid if they are `keys` in the `alphabets` or `matrices` objects (see [4.3](#43-adding-new-alphabetsmatrices-optional)).
+> NOTE: `ID`s are only valid if they are present in the `alphabets` or `matrices` objects (see [4.3](#43-adding-new-alphabetsmatrices-optional)).
 
 #### 4.3 Adding new alphabets/matrices (Optional)
 
@@ -202,7 +207,7 @@ There are two steps to consider when adding new alphabets or matrices, namely:
 1. The creation of the actual file that represents our new dataset, and
 2. Creating a reference to this dataset in [zenode.config.js](/zenode.config.js).
 
-For step one it's important to know what data our text parser expects. For this it might be best to look at the files we've already included in the [dataset](/dataset)-folder. I also suggest to read more about the formatting in the Appendix ([A. Alphabets and Matrices](#a-alphabets-and-matrices)).
+For step one it's important to know what data our text parser expects. For this it might be best to look at the files we've already included in the [dataset](/dataset)-folder. I also suggest to read more about the formatting of `Alphabets and Matrices` in the [Appendix](#a-alphabets-and-matrices).
 
 For the second step we add our new dataset to one of the following objects:
 
@@ -236,30 +241,30 @@ matrices: {
 
 - The `alphabets`-object only requires an `ID` and `RELATIVE_PATH`.
 - The `matrices`-object on the other hand also requires you to add an `ALPHABET_ID`.
-- The `IDs` serve as references in `alphabetsToInsert`, `alphabetsToDelete`, `matricesToInsert` and `matricesToDelete` (see [4.2](#42-editing-insertionsdeletions-optional)).
+- The `IDs` can be used in `alphabetsToInsert`, `alphabetsToDelete`, `matricesToInsert` and `matricesToDelete` (see [4.2](#42-editing-insertionsdeletions-optional)).
 
 ##### 4.3.2 Examples
 
-`alphabet aa` (amino acids; protein sequence characters):
+- `alphabet aa` (amino acids; protein sequence characters):
 
-```javascript
-alphabets: {
-  aa: "dataset/alphabets/aa.txt",
-}
-```
+  ```javascript
+  alphabets: {
+    aa: "dataset/alphabets/aa.txt",
+  }
+  ```
 
-`matrix blosum100` using `alphabet aa`:
+- `matrix blosum100` using `alphabet aa`:
+  ```javascript
+  matrices: {
+    blosum100: {
+      alphabet: "aa",
+      file: "dataset/matrices/blosum100.txt",
+    },
+  }
+  ```
+  <br>
 
-```javascript
-matrices: {
-  blosum100: {
-    alphabet: "aa",
-    file: "dataset/matrices/blosum100.txt",
-  },
-}
-```
-
-> IMPORTANT: a new alphabet or matrix doesn't get inserted into the contract if it's not included in the `alphabetsToInsert` or `matricesToInsert` key-value pair! (see [4.2](#42-editing-insertionsdeletions-optional))
+> IMPORTANT: adding a new alphabet or matrix doesn't mean it gets inserted into the contract in the [Population](#5-population) phase. For this it has to be included in the `alphabetsToInsert` or `matricesToInsert` key-value pair! (see [4.2](#42-editing-insertionsdeletions-optional))
 
 ### 5. Population
 
@@ -277,7 +282,7 @@ npx hardhat run scripts/alphabets/insert.js
 npx hardhat run scripts/matrices/insert.js
 ```
 
-> NOTE: you can't insert a matrix before inserting the alphabet it belongs to!
+> NOTE: you cannot insert a matrix before having inserted the alphabet it belongs to!
 
 #### 5.2 Deletion
 
@@ -398,8 +403,8 @@ This is where most of the <i>personalization</i> for contract deployment and fil
 
 In the case of the `substitution-matrices` repository this includes:
 
-- Choosing which alphabets/matrices get inserted or deleted in the [`Population`](#5-population) phase.
-- Configuring which contract we'll interact with in the [`Interaction`](#6-interaction) phase.
+- Choosing which alphabets/matrices get inserted or deleted in the [Population](#5-population) phase.
+- Configuring which contract we'll interact with in the [Interaction](#6-interaction) phase.
 - Expanding (or shrinking for that matter) the list of known alphabets and matrices.
 
 ## Credits
