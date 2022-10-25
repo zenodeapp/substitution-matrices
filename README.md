@@ -207,7 +207,7 @@ There are two steps to consider when adding new alphabets or matrices, namely:
 1. The creation of the actual file that represents our new dataset, and
 2. Creating a reference to this dataset in [zenode.config.js](/zenode.config.js).
 
-For step one it's important to know what data our text parser expects. For this it might be best to look at the files we've already included in the [dataset](/dataset)-folder. I also suggest to read more about the formatting of `Alphabets and Matrices` in the [Appendix](#a-alphabets-and-matrices).
+For step one it's important to know what data our text parser expects. For this it might be best to look at the files we've already included in the [dataset](/dataset) folder. I also suggest to read more about the formatting of `Alphabets and Matrices` in the [Appendix](#a-alphabets-and-matrices).
 
 For the second step we add our new dataset to one of the following objects:
 
@@ -387,9 +387,9 @@ npx hardhat getMatrices
 
 ### A. [Alphabets and Matrices](/dataset)
 
-`Alphabets` and `Matrices` are the two main components of the `SubstitutionMatrices` contract. Alphabets include but are not limited to nucleotide and protein sequence characters (e.g. C, T, A and G), while matrices are 2-dimensional scoring grids (e.g. BLOSUM62, PAM40, PAM120, etc.). To get a better (visual) understanding, you should check out the alphabets and matrices included in the [dataset](/dataset)-folder.
+`Alphabets` and `Matrices` are the two main components of the `SubstitutionMatrices` contract. Alphabets include but are not limited to nucleotide and protein sequence characters (e.g. C, T, A and G), while matrices are 2-dimensional scoring grids (e.g. BLOSUM62, PAM40, PAM120, etc.). To get a better (visual) understanding, you should check out the alphabets and matrices included in the [dataset](/dataset) folder.
 
-These components are simple .txt-files that abide by the following formatting rules:
+These components are simple .txt files that abide by the following formatting rules:
 
 - An `alphabet` is a single line of characters, where <b>the position of a character represents its numeric value</b>.
 - A `matrix` is a 2-dimensional grid, where the <i>first row</i> and <i>first column</i> consist of <i>only-alphabetical</i> characters.
