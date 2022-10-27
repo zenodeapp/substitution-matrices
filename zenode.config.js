@@ -42,7 +42,7 @@ module.exports = {
     },
   },
 
-  alphabetsToInsert: ["amino_acids", "nucleotides"], //either give a string value or array
+  alphabetsToInsert: ["nucleotides", "amino_acids"], //either give a string value or array
   matricesToInsert: [
     "simple",
     "smart",
@@ -53,7 +53,7 @@ module.exports = {
     "pam250",
   ],
 
-  alphabetsToDelete: ["amino_acids", "nucleotides"],
+  alphabetsToDelete: ["nucleotides", "amino_acids"],
   matricesToDelete: [
     "simple",
     "smart",
