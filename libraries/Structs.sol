@@ -29,6 +29,7 @@ pragma solidity ^0.8.17;
 library Structs {
   struct Matrix {
     string id;
+    string name;
     int[][] grid;
     string alphabetId;
     uint index;
@@ -36,6 +37,7 @@ library Structs {
 
   struct Alphabet {
     string id;
+    string name;
     bytes1[] array;
     uint usage;
     uint index;

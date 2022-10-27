@@ -245,19 +245,19 @@ matrices: {
 
 ##### 4.3.2 Examples
 
-- `alphabet aa` (amino acids; protein sequence characters):
+- `alphabet amino_acids` (protein sequence characters):
 
   ```javascript
   alphabets: {
-    aa: "dataset/alphabets/aa.txt",
+    amino_acids: "dataset/alphabets/aa.txt",
   }
   ```
 
-- `matrix blosum100` using `alphabet aa`:
+- `matrix blosum100` using `alphabet amino_acids`:
   ```javascript
   matrices: {
     blosum100: {
-      alphabet: "aa",
+      alphabet: "amino_acids",
       file: "dataset/matrices/blosum100.txt",
     },
   }

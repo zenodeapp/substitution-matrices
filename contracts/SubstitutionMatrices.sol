@@ -96,6 +96,15 @@ contract SubstitutionMatrices is Owner {
     return insertedAlphabets;
   }
 
+  function getAlphabetStructs()
+  public view returns(Structs.Alphabet[] memory alphabetStructs) {
+    alphabetStructs = new Structs.Alphabet[](insertedAlphabets.length);
+
+    for(uint i = 0; i < insertedAlphabets.length; i++) {
+      alphabetStructs[i] = getAlphabet(insertedAlphabets[i]);
+    }
+  }
+
   function isAlphabet(string memory id)
   public view returns(bool exists) {
     return bytes(alphabets[id].id).length > 0;
@@ -168,6 +177,15 @@ contract SubstitutionMatrices is Owner {
   function getMatrices()
   public view returns(string[] memory) {
     return insertedMatrices;
+  }
+
+  function getMatrixStructs()
+  public view returns(Structs.Matrix[] memory matrixStructs) {
+    matrixStructs = new Structs.Matrix[](insertedMatrices.length);
+
+    for(uint i = 0; i < insertedMatrices.length; i++) {
+      matrixStructs[i] = getMatrix(insertedMatrices[i]);
+    }
   }
 
   function isMatrix(string memory id)
