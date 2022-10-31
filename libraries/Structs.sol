@@ -28,18 +28,32 @@ pragma solidity ^0.8.17;
 
 library Structs {
   struct Matrix {
+    // MATRIX_ID
     string id;
-    string name;
-    int[][] grid;
+
+    // The 2D array for the matrix
+    int[][] grid; 
+
+    // The ALPHABET_ID this matrix is linked to
     string alphabetId;
+
+    // An index for where this matrix is stored in the matrices-array (only useful for the CRUD)
     uint index;
   }
 
   struct Alphabet {
-    string id;
-    string name;
+    // ALPHABET_ID
+    string id; 
+
+    // a list of the alphabet's characters in bytes-representation
+    /* NOTE: read about bytes to string conversion if you want to get its alphabetical-value back.
+             In Javascript you could use: String.fromCharCode(parseInt(CHAR_IN_BYTES)); */
     bytes1[] array;
-    uint usage;
+    
+    // how many times this alphabet is linked to a matrix
+    uint usage; 
+    
+    // an index for where this alphabet is stored in the alphabets-array (only useful for the CRUD)
     uint index;
   }
 }
