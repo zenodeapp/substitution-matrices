@@ -25,10 +25,10 @@
 **********************************************************************************/
 
 pragma solidity ^0.8.17;
-import '../submodules/zenode-contracts/contracts/base/Owner.sol';
+import '../submodules/zenode-contracts/contracts/base/Ownable.sol';
 import '../libraries/Structs.sol';
 
-contract SubstitutionMatrices is Owner {
+contract SubstitutionMatrices is Ownable {
   mapping(string => Structs.Matrix) matrices;
   mapping(string => Structs.Alphabet) alphabets;
   mapping(string => mapping(bytes1 => uint)) alphabetsMapping;
